@@ -3,9 +3,9 @@
 <form method="POST" action="/songs/<%= @song.slug %>">
   <input type="hidden" id="hidden" name="_method" value="PATCH">
 
-  <h3>Song Name: <input type="text" name="song[name]"></h3>
+  <h3>Song Name: <input type="text" name="Name"></h3>
 
-  <h3>Song Artist: <input type="text" name="artist[name]"></h3>
+  <h3>Song Artist: <input type="text" name="Artist Name"></h3>
 
   <h3>Song Genre(s): </h3>
   <% @genres.each do |genre| %>

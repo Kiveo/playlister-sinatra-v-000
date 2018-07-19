@@ -1,4 +1,5 @@
 require 'rack-flash'
+require 'pry'
 
 class SongsController < ApplicationController
   use Rack::Flash
@@ -37,9 +38,10 @@ class SongsController < ApplicationController
   end
 
   patch '/songs/:slug' do #update song
+    binding.pry
     @song = Song.find_by_slug(params[:slug])
-    @song.update(name: params[:song])
-    @song.artist = Artist.find_or_create_by(name: params[:artist][:name])
+    @song.update(params[:song])
+    @song.artist = Artist.find_or_create_by(name: params["artist[name]"])
     @song.genre_ids = params[:genres]
     @song.save
 
